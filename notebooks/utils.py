@@ -34,23 +34,30 @@ def cleanContracts(con):
     con.execute("""
     CREATE OR REPLACE TABLE contracts_clean AS
     SELECT
-        reference_number,
-        TRIM(vendor_name) AS vendor_name,
-        TRIM(buyer_name) AS buyer_name,
+        UPPER(TRIM(reference_number)) AS reference_number,
+        
+        NULLIF(TRIM(vendor_name), 'NA') AS vendor_name,
+        NULLIF(TRIM(buyer_name), 'NA') AS buyer_name,
+        
         procurement_id,
-        CAST(contract_date AS DATE) AS contract_date,
-        CAST(contract_period_start AS DATE) AS contract_period_start,
-        CAST(delivery_date AS DATE) AS delivery_date,
-        CAST(REPLACE(contract_value, ',', '') AS DOUBLE) AS contract_value,
-        CAST(REPLACE(original_value, ',', '') AS DOUBLE) AS original_value,
-        CAST(REPLACE(amendment_value, ',', '') AS DOUBLE) AS amendment_value,
-        CASE WHEN indigenous_business = 'Y' THEN TRUE ELSE FALSE END AS indigenous_business,
-        CASE WHEN former_public_servant = 'Y' THEN TRUE ELSE FALSE END AS former_public_servant,
+        
+        TRY_CAST(contract_date AS DATE) AS contract_date,
+        TRY_CAST(contract_period_start AS DATE) AS contract_period_start,
+        TRY_CAST(delivery_date AS DATE) AS delivery_date,
+        
+        TRY_CAST(REPLACE(contract_value, ',', '') AS DOUBLE) AS contract_value,
+        TRY_CAST(REPLACE(original_value, ',', '') AS DOUBLE) AS original_value,
+        TRY_CAST(REPLACE(amendment_value, ',', '') AS DOUBLE) AS amendment_value,
+        
+        CASE WHEN UPPER(indigenous_business) = 'Y' THEN TRUE ELSE FALSE END AS indigenous_business,
+        CASE WHEN UPPER(former_public_servant) = 'Y' THEN TRUE ELSE FALSE END AS former_public_servant,
+        
         TRIM(owner_org) AS owner_org,
         TRIM(owner_org_title) AS owner_org_title,
+        
         ROW_NUMBER() OVER (
             PARTITION BY reference_number
-            ORDER BY CAST(contract_date AS DATE) DESC
+            ORDER BY TRY_CAST(contract_date AS DATE) DESC
         ) AS rn
     FROM contracts
     WHERE reference_number IS NOT NULL
