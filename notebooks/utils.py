@@ -36,7 +36,7 @@ def cleanContracts(con):
     SELECT
         UPPER(TRIM(reference_number)) AS reference_number,
         
-        LPAD(economic_object_code, 4, '0') AS economic_object_code,
+        commodity_code,
 
         NULLIF(TRIM(vendor_name), 'NA') AS vendor_name,
         NULLIF(TRIM(buyer_name), 'NA') AS buyer_name,
