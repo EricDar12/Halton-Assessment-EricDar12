@@ -51,8 +51,7 @@ def cleanContracts(con):
         TRY_CAST(REPLACE(original_value, ',', '') AS DOUBLE) AS original_value,
         TRY_CAST(REPLACE(amendment_value, ',', '') AS DOUBLE) AS amendment_value,
         
-        CASE WHEN UPPER(indigenous_business) = 'Y' THEN TRUE ELSE FALSE END AS indigenous_business,
-        CASE WHEN UPPER(former_public_servant) = 'Y' THEN TRUE ELSE FALSE END AS former_public_servant,
+        CASE WHEN UPPER(TRIM(former_public_servant)) = 'Y' THEN TRUE ELSE FALSE END AS former_public_servant,
         
         TRIM(owner_org) AS owner_org,
         TRIM(owner_org_title) AS owner_org_title,

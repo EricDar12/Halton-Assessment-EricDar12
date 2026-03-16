@@ -36,7 +36,13 @@ Two simple queries provide clarity.
 
 ## What This Reveals:
 
-The dataset contains far more rows than unique contract identifiers.
+The dataset contains far more rows than unique contract identifiers. Average of **2.5 records** per contract.
+
+Seems to be structured as:
+**Procurement
+   └── Contracts
+           └── Amendments / updates**
+
 
 This strongly suggests that contracts appear **multiple times across reporting periods or amendments.**
 
@@ -63,7 +69,6 @@ Several preparation steps are required to make the data usable.
   - Enables arithmetic.
   - Required for financial analysis.
 - Convert encoded flags to boolean.  
-  - `indigenous_business` **Y/N becomes True/False.**  
   - `former_public_servant` **Y/N becomes True/False.**
 - Partition by `reference_number` and order by `contract_date`
   - Allows the analysis to work with the **latest state of each contract.**
@@ -85,3 +90,12 @@ This centralizes the preparation.
 
 The cleaning function is located in.  
 **[utils.py](../notebooks/utils.py)**
+
+---
+
+## Table Structure Before Cleaning:
+![tbl-before-cleaning](../images/before-clean.jpg)
+
+---
+## Table Structure After Cleaning:
+![tbl-after-cleaning](../images/after-clean.jpg)
