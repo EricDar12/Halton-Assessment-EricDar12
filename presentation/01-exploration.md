@@ -1,6 +1,7 @@
 # Data Exploration
 *Adding context to a large dataset.*
 
+##### [Table of Contents](../README.md) | [Next Page](02-cleaning.md)
 ---
 
 ## Defining the Data:

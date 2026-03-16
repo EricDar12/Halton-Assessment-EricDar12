@@ -1,6 +1,8 @@
 # Data Cleaning & Preparation
 *The focus drives the preparation, not the other way around*
 
+##### [Table of Contents](../README.md) | [Next Page](03-insights.md)
+
 ---
 
 Preparing a dataset of this size requires careful validation before meaningful analysis can begin. While the dataset contains over **1.2 million records and 43 columns**, not every field requires transformation or correction. Instead, preparation is guided by the insights being explored.
