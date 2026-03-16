@@ -1,7 +1,7 @@
 # Data Cleaning & Preparation
 *The focus drives the preparation, not the other way around*
 
-##### [Table of Contents](../README.md) | [Next Page](03-insights.md)
+##### [Table of Contents](../README.md) | [Previous Page](01-exploration.md) | [Next Page](03-insights.md)
 
 ---
 

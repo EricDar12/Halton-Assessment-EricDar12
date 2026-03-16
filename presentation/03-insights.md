@@ -1,5 +1,5 @@
 # Insights & Patterns
-##### [Table of Contents](../README.md) | [Next Page](04-quality-and-tradeoffs.md)
+##### [Table of Contents](../README.md) | [Previous Page](02-cleaning.md) | [Next Page](04-quality-and-tradeoffs.md)
 ---
 
 ## My Focus:
