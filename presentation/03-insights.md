@@ -26,6 +26,8 @@ Large contracts dominate revenue for some vendors, while others may have hundred
 **Top 10 Vendors By Value Contract Count:**  
 ![Top 10 Vendors by Contract Count](../images/top-10-vendors-by-contract-count.jpg)
 
+![vendor-value-vs-contract-count](../images/value-vs-cont-count.jpg)
+
 ---
 
 ## 2. The Financial Impact of Contract Amendments
@@ -52,6 +54,8 @@ Contracts with many amendments are not necessarily problematic. In some cases th
 ![Total Amended Contracts](../images/total-amended.jpg)
 
 *Nearly one third of all contracts have been amended.*
+
+![total-cont-vs-amended](../images/total-amended-bar.jpg)
 
 ---
 **Top 10 Contracts By Amendment Count:**
@@ -126,3 +130,5 @@ However, the large number of missing postal codes introduces uncertainty. While 
 **Visuals:**
 
 ![Vendors by Postal Code](../images/top-10-postal-codes.jpg)
+
+![vendors-by-city](../images/vendor-dist-by-city.jpg)
