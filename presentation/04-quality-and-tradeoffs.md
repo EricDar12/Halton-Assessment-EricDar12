@@ -20,9 +20,9 @@ Without addressing this structure, simple aggregations would produce misleading 
 
 Each contract update includes three financial fields:
 
-- `contract_value` — the **current total value** of the contract, including all amendments  
-- `original_value` — the **initial value** when the contract was first awarded  
-- `amendment_value` — the **change introduced by that specific update**
+- `contract_value` - the **current total value** of the contract, including all amendments  
+- `original_value` - the **initial value** when the contract was first awarded  
+- `amendment_value` - the **change introduced by that specific update**
 
 On average, **2.5 rows exist per reference number**, meaning a single contract is represented multiple times as it evolves.
 

@@ -25,7 +25,7 @@ Large contracts dominate revenue for some vendors, while others may have hundred
 <br>
 **Top 10 Vendors By Value Contract Count:**  
 ![Top 10 Vendors by Contract Count](../images/top-10-vendors-by-contract-count.jpg)
-
+<br>
 ![vendor-value-vs-contract-count](../images/value-vs-cont-count.jpg)
 
 ---
@@ -130,5 +130,5 @@ However, the large number of missing postal codes introduces uncertainty. While 
 **Visuals:**
 
 ![Vendors by Postal Code](../images/top-10-postal-codes.jpg)
-
+<br>
 ![vendors-by-city](../images/vendor-dist-by-city.jpg)
