@@ -42,6 +42,12 @@ def cleanContracts(con):
         NULLIF(TRIM(buyer_name), 'NA') AS buyer_name,
         
         procurement_id,
+                
+        CASE WHEN TRIM(UPPER(vendor_postal_code)) 
+                IN ('NA', 'N/A', 'NONE', 'UNKNOWN', 'NULL', '') -- Common placeholders for missing postal codes
+                THEN NULL 
+                ELSE UPPER(TRIM(vendor_postal_code)) 
+        END AS vendor_postal_code,
         
         TRY_CAST(contract_date AS DATE) AS contract_date,
         TRY_CAST(contract_period_start AS DATE) AS contract_period_start,

@@ -94,3 +94,35 @@ Commodity data highlights the types of services and goods most frequently purcha
 Operational supplies and IT services appear heavily represented, indicating that ongoing government operations drive a large share of procurement activity.
 
 However, similar to vendor analysis, **frequency does not necessarily equal financial impact**. Certain commodity categories generate significant spending even with fewer contracts.
+
+---
+
+## 4. Vendor Distribution by Postal Code
+
+**What it Means:**
+- Vendor postal codes help determine **where contracted work is concentrated geographically.**
+- A large portion of records contain **missing postal codes**, which limits full geographic analysis.
+  - **cleanContracts()** handles this through normalization.
+- Among available data, there is a clear concentration of vendors in specific regions
+
+**Observation:**
+- The most frequent postal code entries are heavily concentrated in **Ottawa.**
+- Postal codes including **K1P, K1G, K2E, K1Z, K2P, and K1N** all correspond to Ottawa
+- These account for **10,768 vendor records** alone in my findings (top 10 postal codes). 
+- Other notable clusters appear in:
+  - **M5W** (Toronto)
+  - **H3C** (Montreal)
+  - **T2P** (Calgary)
+  - **B3B** (Halifax)
+
+- A significant limitation:
+  - **NULL postal codes (~396,000 records)** represent the largest group, reducing completeness.
+
+**Interpretation:**
+Procurement activity appears highly concentrated in **Ottawa**, which aligns with it being the administrative center of the federal government. This suggests many contracts are awarded to vendors located near government offices or headquarters.
+
+However, the large number of missing postal codes introduces uncertainty. While the visible trend is strong, the true geographic distribution may be broader than observed.
+
+**Visuals:**
+
+![Vendors by Postal Code](../images/top-10-postal-codes.jpg)

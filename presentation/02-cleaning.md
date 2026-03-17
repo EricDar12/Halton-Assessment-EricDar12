@@ -12,9 +12,9 @@ The goal is not to perfectly normalize the entire dataset, but to ensure that th
 ---
 
 ## Key Observations:
-- Over **1.2 million** database entries.
+- Over **1.1 million** database entries.
 - `reference_number` appears to be the unique contract identifier.
-- Data types are inconsisten,  every column stored as **varchar.**
+- Data types are inconsistent, every column stored as **varchar.**
 - All columns nullable.  
   - Not necessarily problematic.  
   - Important to account for during analysis.
@@ -64,13 +64,14 @@ In its raw state, the dataset is difficult to analyze.
 Several preparation steps are required to make the data usable.
 
 - Trim fields such as `vendor_name` and `buyer_name` to remove whitespace.
+- Normalize `vendor_postal_code`.
 - Cast date fields from **varchar to actual date types.**
 - Cast financial fields (`contract_value`, `amendment_value`, `original_value`) to **double.**
   - Enables arithmetic.
   - Required for financial analysis.
 - Convert encoded flags to boolean.  
   - `former_public_servant` **Y/N becomes True/False.**
-- Partition by `reference_number` and order by `contract_date`
+- Partition by `reference_number` and order by `contract_date`.
   - Allows the analysis to work with the **latest state of each contract.**
   - Prevents duplicate counting during aggregation.
 

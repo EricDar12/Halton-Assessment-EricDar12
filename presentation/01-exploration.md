@@ -19,7 +19,7 @@
 
 ## The Dataset:
 
-The provided dataset contains over **1.2 million** entries. With **43** database columns including:
+The provided dataset contains over **1.1 million** entries. With **43** database columns including:
 - **Vendor name:** The company awarded the contract.
 - **Buyer name:** The government organization or department issuing the contract.
 - **Contract Value:** The monetary value of the contract including amendments.
@@ -31,7 +31,7 @@ The provided dataset contains over **1.2 million** entries. With **43** database
 
 ## Focus:
 
-Because of the sheer size of this dataset, many different valuable perspectives can be explored. Attepting to prepare every column for every possible question would introduce unnecessary complexity and slow the analytical process.
+Because of the sheer size of this dataset, many different valuable perspectives can be explored. Attempting to prepare every column for every possible question would introduce unnecessary complexity and slow the analytical process.
 
 Instead, the analysis follows a **question-driven approach**: the insights being explored determine which parts of the dataset require preparation and cleaning.
 
