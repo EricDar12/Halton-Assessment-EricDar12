@@ -23,7 +23,7 @@ Large contracts dominate revenue for some vendors, while others may have hundred
 **Top 10 Vendors By Value:**  
 ![Top 10 Vendors by Contract Value](../images/top-10-vendors-by-value.jpg)
 <br>
-**Top 10 Vendors By Value Contract Count:**  
+**Top 10 Vendors By Contract Count:**  
 ![Top 10 Vendors by Contract Count](../images/top-10-vendors-by-contract-count.jpg)
 <br>
 ![vendor-value-vs-contract-count](../images/value-vs-cont-count.jpg)
@@ -61,7 +61,8 @@ Contracts with many amendments are not necessarily problematic. In some cases th
 **Top 10 Contracts By Amendment Count:**
 ![Top Contracts by Amendment Count](../images/top-10-by-amendment-count.jpg)
 <br>
-**Top 10 Contracts By Financial Impact:**
+
+**Top 10 Contracts By Amendment Impact:**
 ![Top Contracts by Amendment Impact](../images/top-10-by-amendment-impact.jpg)
 
 ---
@@ -94,8 +95,7 @@ Contracts with many amendments are not necessarily problematic. In some cases th
 
 
 **Interpretation:**
-Commodity data highlights the types of services and goods most frequently purchased.  
-Operational supplies and IT services appear heavily represented, indicating that ongoing government operations drive a large share of procurement activity.
+Commodity data highlights the types of services and goods most frequently purchased. Operational supplies and IT services appear heavily represented, indicating that ongoing government operations drive a large share of procurement activity.
 
 However, similar to vendor analysis, **frequency does not necessarily equal financial impact**. Certain commodity categories generate significant spending even with fewer contracts.
 
@@ -105,6 +105,7 @@ However, similar to vendor analysis, **frequency does not necessarily equal fina
 
 **What it Means:**
 - Vendor postal codes help determine **where contracted work is concentrated geographically.**
+  - Where are vendors most often located?
 - A large portion of records contain **missing postal codes**, which limits full geographic analysis.
   - **cleanContracts()** handles this through normalization.
 - Among available data, there is a clear concentration of vendors in specific regions
@@ -120,7 +121,7 @@ However, similar to vendor analysis, **frequency does not necessarily equal fina
   - **B3B** (Halifax)
 
 - A significant limitation:
-  - **NULL postal codes (~396,000 records)** represent the largest group, reducing completeness.
+  - **NULL postal codes (about 396,000 records)** represent the largest group, reducing completeness.
 
 **Interpretation:**
 Procurement activity appears highly concentrated in **Ottawa**, which aligns with it being the administrative center of the federal government. This suggests many contracts are awarded to vendors located near government offices or headquarters.

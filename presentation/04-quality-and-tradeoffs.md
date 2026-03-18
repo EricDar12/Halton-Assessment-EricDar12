@@ -8,8 +8,8 @@ As discussed earlier, the dataset reflects contracts **changing over time** rath
 
 This introduces several structural challenges:
 
-- **Multiple rows per contract**
-- **Reference numbers are not unique identifiers**
+- **Multiple rows per contract.**
+- **Reference numbers are not unique identifiers.**
 - Contract records must be organized before meaningful financial analysis can occur
 
 Without addressing this structure, simple aggregations would produce misleading results.

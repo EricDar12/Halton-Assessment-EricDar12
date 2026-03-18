@@ -5,13 +5,13 @@
 
 ---
 
-Preparing a dataset of this size requires careful validation before meaningful analysis can begin. While the dataset contains over **1.2 million records and 43 columns**, not every field requires transformation or correction. Instead, preparation is guided by the insights being explored.
+Preparing a dataset of this size requires careful validation before meaningful analysis can begin. While the dataset contains over **1.1 million records and 43 columns**, not every field requires transformation or correction. Instead, preparation is guided by the insights being explored.
 
 The goal is not to perfectly normalize the entire dataset, but to ensure that the **fields used for analysis are reliable, consistent, and usable**
 
 ---
 
-## Key Observations:
+## Key Observations: 
 - Over **1.1 million** database entries.
 - `reference_number` appears to be the unique contract identifier.
 - Data types are inconsistent, every column stored as **varchar.**
@@ -39,10 +39,11 @@ Two simple queries provide clarity.
 The dataset contains far more rows than unique contract identifiers. Average of **2.5 records** per contract.
 
 Seems to be structured as:
-**Procurement
+```
+Procurement
    └── Contracts
-           └── Amendments / updates**
-
+           └── Amendments / Updates
+```
 
 This strongly suggests that contracts appear **multiple times across reporting periods or amendments.**
 
@@ -51,20 +52,20 @@ Rather than representing static records, the dataset reflects contracts **changi
 Each row may represent:
 - an amendment.
 - an update to contract value.
-- a new reporting entry for the same contract.
+- a new reporting entry for the same contract (new fiscal quarter).
 
-Understanding this structure is essential before performing any aggregation or financial analysis.
+Understanding this structure is essential before performing any aggregation or analysis.
 
 ---
 
-## Cleaning Strategy
+## Cleaning Strategy:
 
 In its raw state, the dataset is difficult to analyze.
 
 Several preparation steps are required to make the data usable.
 
 - Trim fields such as `vendor_name` and `buyer_name` to remove whitespace.
-- Normalize `vendor_postal_code`.
+- Normalize `vendor_postal_code` (Lots of N/A, n/a, etc).
 - Cast date fields from **varchar to actual date types.**
 - Cast financial fields (`contract_value`, `amendment_value`, `original_value`) to **double.**
   - Enables arithmetic.
@@ -74,10 +75,13 @@ Several preparation steps are required to make the data usable.
 - Partition by `reference_number` and order by `contract_date`.
   - Allows the analysis to work with the **latest state of each contract.**
   - Prevents duplicate counting during aggregation.
+  - `Where rn = 1`.
+
+
 
 ---
 
-## Centralized Cleaning Logic
+## Centralized Cleaning Logic:
 
 To keep the workflow consistent, the cleaning process is implemented through a reusable Python function.
 
@@ -86,8 +90,8 @@ This centralizes the preparation.
 - Changes to cleaning logic occur in one location.
 - Changes are reflected in all notebooks.
 - Keeps the analysis code simple and focused.
-- Encapsulated, leverages key advantages of OOP.
-- DRY.
+- Encapsulated.
+- DRY (Don't repeat yourself!).
 
 The cleaning function is located in.  
 **[utils.py](../notebooks/utils.py)**
